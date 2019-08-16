@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+float avg = 0;
+
+float AvgFilter(float PrevAvg,int NewNum,int ListLength)
+{
+ float OldWeight = (ListLength-1)/ListLength;
+ float NewWeight = 1/ListLength;
+ return (OldWeight*PrevAvg)+(NewNum*NewWeight);
+} 
+
+void main()
+{
+
+
+}
