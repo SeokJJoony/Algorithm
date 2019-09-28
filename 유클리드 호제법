@@ -1,8 +1,9 @@
-#include <stdio.h>
+#include <stdio.h>        
 
-void Swap(int *x, int *y);
-int GDC(int a, int b);
-
+void Swap(int *x, int *y);                       //유클리드 호제법 세가지 공식: 1) 두 수 a b가 있을 때 a<b면 두개를 스왑 b a로 변경
+int GDC(int a, int b);                           //                           2) 두 수 a b에서 a%b==0이면 b가 최대공약수             
+                                                 //			      3) 나머지 경우에는 a%b연산을 하여 나머지값을 b에 기존 b값을 a
+						 //                              에 넣으면서 a%b==0이 될때까지 반복-> 재귀함수 사용 !
 void main()
 {
 	int Num1, Num2, Result=0;
