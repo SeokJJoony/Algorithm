@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+void Swap(int *x, int *y);
+int GDC(int a, int b);
+
+void main()
+{
+	int Num1, Num2, Result=0;
+	scanf_s("%d %d", &Num1, &Num2);
+	if (Num1 < Num2)
+		Swap(&Num1, &Num2);
+	Result = GDC(Num1, Num2);
+	printf("%d와 %d의 최대공약수는 %d입니다.", Num1, Num2, Result);
+
+}
+
+void Swap(int *x, int *y)
+{
+	int temp = 0;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+int GDC(int a, int b)
+{
+	while (1)
+	{
+		int M = a%b;
+		if (M == 0)
+			break;
+		else
+		{ 
+			a = b;
+			b = M;
+		}
+	}
+	return b;
+}
