@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>                //검사하는 수가 2~검사하는 수의 제곱근사이의 수와 나눠떨어지지 않으면 그 수는 소수!
+
+void main()
+{
+	int P = 2, N = 3,R = 0, i=2;   //P: 가장 작은 소수인 2, N: 3부터 검사 시작
+	int M=0;                       //R: 검사 값을 2부터 검사 값의 제곱근사이의 수와 나눈 나머지 값
+	                               //i: 2~검사 값의 제곱근 사이의 수, M: 검사 값의 제곱근 저장
+	while (1)
+	{
+		M = (int)sqrt((double)N);
+		for (i = 2; i <= M; i++)
+		{
+			R = N % i;
+			if (R == 0)
+				break;
+			if(i == M)
+				P = N;
+		}
+		N = N + 1;
+		if (N > 100) break;
+	}
+	printf("%d", P);
+}
