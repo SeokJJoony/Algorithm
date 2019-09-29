@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+void main()
+{
+	char H[16] = { '0','1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B','C','D', 'E','F' };
+	char T[20] = { 0, };
+	int D, i = 0, M=0,N=0,K;
+	scanf_s("%d", &D);
+	do
+	{
+		M = (int)D / 16;
+		N = D % 16;
+		T[i] = H[N];
+		i++;
+		D = M;
+	} while (M > 15);
+	T[i] = H[M];
+	for(K=i;K>=0;K--)
+	printf("%c", T[K]);
+}
