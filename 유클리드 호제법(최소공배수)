@@ -1,0 +1,49 @@
+#include <stdio.h>                            //유클리드 호제법을 이용한 최소공배수 구하기
+                                              //두 수의 곱에 최대공약수를 나눠주면 그게 최소공배수!!(간단)
+void Swap(int *a, int *b);
+int GCD(int x, int y);
+int LCM(int x, int y);
+
+void main()
+{
+	int N1, N2, Result1=0,Result2=0;
+	scanf_s("%d %d", &N1, &N2);
+	if (N1 < N2)
+		Swap(&N1, &N2);
+	Result1=GCD(N1, N2);
+	printf("두 수의 최대공약수는 %d 입니다.\n", Result1);
+	Result2 = LCM(N1, N2);
+	printf("두 수의 최소공배수는 %d 입니다.\n", Result2);
+}
+
+void Swap(int *a, int *b)
+{
+	int Temp;
+	Temp = *a;
+	*a = *b;
+	*b = Temp;
+}
+
+int GCD(int x, int y)
+{
+	int R = 0;
+	while (1)
+	{
+		if (x%y == 0)
+			break;
+		else
+		{
+			R = x%y;
+			x = y;
+			y = R;
+		}
+	}
+	return y;
+}
+
+int LCM(int x, int y)
+{
+	int R = 0;
+	R = x*y / GCD(x, y);
+	return R;
+}
