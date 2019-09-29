@@ -1,0 +1,40 @@
+#include <stdio.h>        
+
+void Swap(int *x, int *y);                       //유클리드 호제법(최대공약수) 세가지 공식: 
+int GCD(int a, int b);                           //1) 두 수 a b가 있을 때 a<b면 두개를 스왑 b a로 변경                                        
+                                                 //2) 두 수 a b에서 a%b==0이면 b가 최대공약수
+						 //3) 나머지 경우에는 a%b연산을 하여 나머지값을 b에 기존 b값을 a
+void main()					 //에 넣으면서 a%b==0이 될때까지 반복-> 재귀함수 사용 가능!
+{
+	int Num1, Num2, Result=0;
+	scanf_s("%d %d", &Num1, &Num2);
+	if (Num1 < Num2)
+		Swap(&Num1, &Num2);
+	Result = GCD(Num1, Num2);
+	printf("%d와 %d의 최대공약수는 %d입니다.", Num1, Num2, Result);
+
+}
+
+void Swap(int *x, int *y)
+{
+	int temp = 0;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+int GCD(int a, int b)
+{
+	while (1)
+	{
+		int M = a%b;
+		if (M == 0)
+			break;
+		else
+		{ 
+			a = b;
+			b = M;
+		}
+	}
+	return b;
+}
