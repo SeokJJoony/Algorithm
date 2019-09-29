@@ -1,0 +1,19 @@
+#include <stdio.h>         //패리티 비트는 송신자 관점에서 봤을때 제일 처음으로 보내는 비트!
+
+void main()
+{
+	int P[9] = { 1,0,0,1,0,1,0,1,1 };
+	int PN = 0, K, E;
+	for (K = 0; K < 8; K++)
+	{
+		if (P[K] == 1)
+		{
+			PN += 1;
+		}
+	}
+	E = PN % 2;
+	if (P[0] == E)
+		printf("오류 미발견");
+	else
+		printf("오류 발견");
+}
