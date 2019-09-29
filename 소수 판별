@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <math.h>                //검사하는 수가 2~검사하는 수의 제곱근사이의 수와 나눠떨어지지 않으면 그 수는 소수!
+#include <stdio.h>		       //검사하는 수가 2~검사하는 수의 제곱근사이의 수와 나눠떨어지지 않으면 그 수는 소수!	
+#include <math.h>                      //sqrt함수 사용을 위해 math 라이브러리 선언
 
 void main()
 {
