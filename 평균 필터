@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h>           //실시간으로 데이터를 누적하여 평균을 구해야 할 때 효율적
 
 float avg = 0;
 
