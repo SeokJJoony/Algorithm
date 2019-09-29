@@ -1,0 +1,30 @@
+#include <stdio.h>
+void main()
+{
+	int N ,P=2,T=0, J=1;
+	int A[20] ;
+
+	scanf_s("%d", &N);
+	if (N>=2){
+		while(1){
+			for (P = 2; P < N; P++){
+				if (N%P == 0)
+					break;	
+			}
+				A[T] = P;
+				N = N / P;
+				T++;
+				if (N == 1)
+					break;
+		}
+		if (T == 1)
+			printf("소수");
+		else{
+			for (J = 0; J < T - 1; J++)
+				printf("%d *", A[J]);
+			printf("%d", A[T-1]);
+		}
+	}
+	else
+		printf("알고리즘 종료");
+}
