@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+void QSORT(int E[],int L, int R);
+void Swap(int *x, int *y);
+
+void main()
+{
+	int E[10] = {5,1,2,6,3,4,9,7,8,10 };
+	for (int k = 0; k < 10; k++)
+		printf("%d ", E[k]);
+	QSORT(E, 1, 9);
+	printf("\n");
+	for (int k = 0; k < 10; k++)
+		printf("%d ", E[k]);
+	
+}
+
+void QSORT(int E[],int L, int R)
+{
+	int P, i, j;
+	if (L < R)
+	{
+		P = E[L];
+		i = L;
+		j = R;
+		while (1)
+		{
+			i++;
+			if (P > E[i] && i < R)
+				continue;
+			else
+			{
+				if (P<E[j] && j>L)
+					j--;
+				else
+				{
+					if (i<j)
+					{
+						Swap(&E[i], &E[j]);
+						continue;
+					}
+					else
+					{
+						Swap(&E[j], &E[L]);
+						QSORT(E,L, j - 1);
+						QSORT(E, j + 1, R);
+						break;
+					}
+				}
+			}
+		}
+	}
+}
+
+void Swap(int *x, int *y)
+{
+	int Temp = 0;
+	Temp = *x;
+	*x = *y;
+	*y = Temp;
+}
