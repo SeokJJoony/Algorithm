@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void BS(int E[],int L, int H, int K);
+
+void main()
+{
+	int A[10] = { 3,6,7,8,9,14,16,17,20,34 };
+	int K = 0;
+	scanf_s("%d", &K);
+	BS(A,0, 9, K);
+}
+
+void BS(int E[],int L, int H, int K)
+{
+	int M = 0;
+	while (1)
+	{
+		if(L>H)
+		{ 
+			printf("-99");
+				break;
+		}
+		else
+		{
+			M = (int)(L + H) / 2;
+			if (E[M] > K)
+			{
+				H = M - 1;
+				continue;
+			}
+			else if (E[M] < K)
+			{
+				L = M + 1;
+				continue;
+			}
+			else
+			{
+				printf("%d", M);
+				break;
+			}
+		}
+	}
+}
