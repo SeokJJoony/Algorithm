@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+void main()
+{
+	int A[5] = { 4,5,7,8,10 };
+	int B[5] = { 9,6,3,2,1 };
+	int C[10] = { 0, };
+	int iA=0,iB = 4,iC = 0, Done=0;
+
+	while(1)
+	{
+		if (A[iA] < B[iB])
+		{
+			C[iC] = A[iA];
+			iA++;
+			iC++;
+			if (iA <= 4)
+				continue;
+			else
+			{
+				if (Done == 0)
+				{
+					A[4] = 999999;
+					iA = 4;
+					Done = 1;
+				}
+				else
+					break;
+			}
+		}
+		else
+		{
+			C[iC] = B[iB];
+			iB--;
+			iC++;
+			if (iB >= 0)
+				continue;
+			else
+			{
+				if (Done == 0)
+				{
+					B[0] = 999999;
+					iB = 0;
+					Done = 1;
+				}
+				else
+					break;
+			}
+		}
+		}
+		for (int k = 0; k < 10; k++)
+			printf("%d ", C[k]);
+	} 
+	
+
